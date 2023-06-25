@@ -1,3 +1,3 @@
-web: gunicorn progress.asgi --log-file -
+web: gunicorn progress.wsgi --log-file -
 
 celery -A progress.celery worker --pool=threads -l info

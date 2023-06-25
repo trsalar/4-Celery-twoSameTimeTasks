@@ -137,3 +137,11 @@ CELERY_RESULT_BACKEND = 'django-db'
 #Heroku Settings
 import django_heroku
 django_heroku.settings(locals())
+
+
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+    },
+}

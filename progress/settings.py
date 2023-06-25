@@ -32,9 +32,12 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'example',
+    'integers',
+
+    'channels',
     'django_celery_results',
     'celery_progress',
-
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -73,6 +76,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'progress.wsgi.application'
+ASGI_APPLICATION = 'progress.asgi.application'
 
 
 # Database

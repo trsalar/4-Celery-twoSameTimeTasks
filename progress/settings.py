@@ -126,7 +126,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
+        },
+    },
+}
 STATIC_URL = '/static/'
+
+
 
 CELERY_BROKER_URL = 'rediss://:p3048b39a4ccdcc4e64c7b0911ae9d7065680ea5d277b6bfeb17ed95781d46b31@ec2-34-250-187-146.eu-west-1.compute.amazonaws.com:13960'
 
@@ -139,9 +149,3 @@ import django_heroku
 django_heroku.settings(locals())
 
 
-
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels.layers.InMemoryChannelLayer',
-    },
-}
